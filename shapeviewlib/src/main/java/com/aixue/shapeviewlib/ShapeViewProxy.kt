@@ -12,8 +12,10 @@ import androidx.core.view.ViewCompat
 object ShapeViewProxy {
 
     fun proxyShapeAttributes(view: View, context: Context, attrs: AttributeSet, defStyle: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ShapeView,
-            defStyle, 0)
+        val typedArray = context.obtainStyledAttributes(
+            attrs, R.styleable.ShapeView,
+            defStyle, 0
+        )
 
         if (!hasValue(typedArray, R.styleable.ShapeView_shape)) {
             return
@@ -35,7 +37,8 @@ object ShapeViewProxy {
         }
         if (hasValue(typedArray, R.styleable.ShapeView_selectedSolidColor)) {
             val drawableDisable = buildDrawable(typedArray)
-            val selectedSolidColor = typedArray.getColor(R.styleable.ShapeView_selectedSolidColor, 0)
+            val selectedSolidColor =
+                typedArray.getColor(R.styleable.ShapeView_selectedSolidColor, 0)
             drawableDisable.setColor(selectedSolidColor)
             drawableList.addState(intArrayOf(android.R.attr.state_selected), drawableDisable)
         }
@@ -60,14 +63,22 @@ object ShapeViewProxy {
         val drawable = GradientDrawable()
 
         val cornersRadius = typedArray.getDimension(R.styleable.ShapeView_cornersRadius, 0f)
-        val cornersTopLeftRadius = typedArray.getDimension(R.styleable.ShapeView_cornersTopLeftRadius,
-            0f)
-        val cornersTopRightRadius = typedArray.getDimension(R.styleable.ShapeView_cornersTopRightRadius,
-            0f)
-        val cornersBottomLeftRadius = typedArray.getDimension(R.styleable.ShapeView_cornersBottomLeftRadius,
-            0f)
-        val cornersBottomRightRadius = typedArray.getDimension(R.styleable.ShapeView_cornersBottomRightRadius,
-            0f)
+        val cornersTopLeftRadius = typedArray.getDimension(
+            R.styleable.ShapeView_cornersTopLeftRadius,
+            0f
+        )
+        val cornersTopRightRadius = typedArray.getDimension(
+            R.styleable.ShapeView_cornersTopRightRadius,
+            0f
+        )
+        val cornersBottomLeftRadius = typedArray.getDimension(
+            R.styleable.ShapeView_cornersBottomLeftRadius,
+            0f
+        )
+        val cornersBottomRightRadius = typedArray.getDimension(
+            R.styleable.ShapeView_cornersBottomRightRadius,
+            0f
+        )
 
         val strokeWidth = typedArray.getDimension(R.styleable.ShapeView_strokeShapeWidth, 0f)
         val strokeColor = typedArray.getColor(R.styleable.ShapeView_strokeShapeColor, 0)
@@ -76,7 +87,12 @@ object ShapeViewProxy {
 
         if (hasValue(strokeWidth) && hasValue(typedArray, R.styleable.ShapeView_strokeShapeColor)) {
             if (hasValue(strokeDashGap) || hasValue(strokeDashWidth)) {
-                drawable.setStroke(Math.round(strokeWidth), strokeColor, strokeDashWidth, strokeDashGap)
+                drawable.setStroke(
+                    Math.round(strokeWidth),
+                    strokeColor,
+                    strokeDashWidth,
+                    strokeDashGap
+                )
             } else {
                 drawable.setStroke(Math.round(strokeWidth), strokeColor)
             }
@@ -96,10 +112,18 @@ object ShapeViewProxy {
         } else if (hasValue(cornersTopLeftRadius) ||
             hasValue(cornersTopRightRadius) ||
             hasValue(cornersBottomLeftRadius) ||
-            hasValue(cornersBottomRightRadius)) {
-            drawable.cornerRadii = floatArrayOf(cornersTopLeftRadius, cornersTopLeftRadius,
-                cornersTopRightRadius, cornersTopRightRadius, cornersBottomRightRadius, cornersBottomRightRadius,
-                cornersBottomLeftRadius, cornersBottomLeftRadius)
+            hasValue(cornersBottomRightRadius)
+        ) {
+            drawable.cornerRadii = floatArrayOf(
+                cornersTopLeftRadius,
+                cornersTopLeftRadius,
+                cornersTopRightRadius,
+                cornersTopRightRadius,
+                cornersBottomRightRadius,
+                cornersBottomRightRadius,
+                cornersBottomLeftRadius,
+                cornersBottomLeftRadius
+            )
         }
         return drawable
     }
@@ -118,17 +142,18 @@ object ShapeViewProxy {
 
         if (gradientArray.isNotEmpty()) {
             drawable.colors = gradientArray.toIntArray()
-            drawable.orientation = when (typedArray.getInt(R.styleable.ShapeView_gradientOrientation, 0)) {
-                0 -> GradientDrawable.Orientation.LEFT_RIGHT
-                45 -> GradientDrawable.Orientation.BL_TR
-                90 -> GradientDrawable.Orientation.BOTTOM_TOP
-                135 -> GradientDrawable.Orientation.BR_TL
-                180 -> GradientDrawable.Orientation.RIGHT_LEFT
-                225 -> GradientDrawable.Orientation.TR_BL
-                270 -> GradientDrawable.Orientation.TOP_BOTTOM
-                315 -> GradientDrawable.Orientation.TL_BR
-                else -> GradientDrawable.Orientation.TOP_BOTTOM
-            }
+            drawable.orientation =
+                when (typedArray.getInt(R.styleable.ShapeView_gradientOrientation, 0)) {
+                    0 -> GradientDrawable.Orientation.LEFT_RIGHT
+                    45 -> GradientDrawable.Orientation.BL_TR
+                    90 -> GradientDrawable.Orientation.BOTTOM_TOP
+                    135 -> GradientDrawable.Orientation.BR_TL
+                    180 -> GradientDrawable.Orientation.RIGHT_LEFT
+                    225 -> GradientDrawable.Orientation.TR_BL
+                    270 -> GradientDrawable.Orientation.TOP_BOTTOM
+                    315 -> GradientDrawable.Orientation.TL_BR
+                    else -> GradientDrawable.Orientation.TOP_BOTTOM
+                }
         }
     }
 
