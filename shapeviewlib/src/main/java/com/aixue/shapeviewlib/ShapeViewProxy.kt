@@ -17,34 +17,34 @@ object ShapeViewProxy {
             defStyle, 0
         )
 
-        if (!hasValue(typedArray, R.styleable.ShapeView_shape)) {
+        if (!hasValue(typedArray, R.styleable.ShapeView_sv_shape)) {
             return
         }
 
         val drawableList = StateListDrawable()
 
-        if (hasValue(typedArray, R.styleable.ShapeView_pressedSolidColor)) {
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_pressedSolidColor)) {
             val drawablePressed = buildDrawable(typedArray)
-            val pressedSolidColor = typedArray.getColor(R.styleable.ShapeView_pressedSolidColor, 0)
+            val pressedSolidColor = typedArray.getColor(R.styleable.ShapeView_sv_pressedSolidColor, 0)
             drawablePressed.setColor(pressedSolidColor)
             drawableList.addState(intArrayOf(android.R.attr.state_pressed), drawablePressed)
         }
-        if (hasValue(typedArray, R.styleable.ShapeView_checkedSolidColor)) {
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_checkedSolidColor)) {
             val drawableChecked = buildDrawable(typedArray)
-            val checkedSolidColor = typedArray.getColor(R.styleable.ShapeView_checkedSolidColor, 0)
+            val checkedSolidColor = typedArray.getColor(R.styleable.ShapeView_sv_checkedSolidColor, 0)
             drawableChecked.setColor(checkedSolidColor)
             drawableList.addState(intArrayOf(android.R.attr.state_checked), drawableChecked)
         }
-        if (hasValue(typedArray, R.styleable.ShapeView_selectedSolidColor)) {
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_selectedSolidColor)) {
             val drawableDisable = buildDrawable(typedArray)
             val selectedSolidColor =
-                typedArray.getColor(R.styleable.ShapeView_selectedSolidColor, 0)
+                typedArray.getColor(R.styleable.ShapeView_sv_selectedSolidColor, 0)
             drawableDisable.setColor(selectedSolidColor)
             drawableList.addState(intArrayOf(android.R.attr.state_selected), drawableDisable)
         }
-        if (hasValue(typedArray, R.styleable.ShapeView_disableSolidColor)) {
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_disableSolidColor)) {
             val drawableDisable = buildDrawable(typedArray)
-            val disableSolidColor = typedArray.getColor(R.styleable.ShapeView_disableSolidColor, 0)
+            val disableSolidColor = typedArray.getColor(R.styleable.ShapeView_sv_disableSolidColor, 0)
             drawableDisable.setColor(disableSolidColor)
             drawableList.addState(intArrayOf(-android.R.attr.state_enabled), drawableDisable)
         }
@@ -58,34 +58,34 @@ object ShapeViewProxy {
 
     private fun buildDrawable(typedArray: TypedArray): GradientDrawable {
 
-        val shape = typedArray.getInt(R.styleable.ShapeView_shape, 0)
+        val shape = typedArray.getInt(R.styleable.ShapeView_sv_shape, 0)
 
         val drawable = GradientDrawable()
 
-        val cornersRadius = typedArray.getDimension(R.styleable.ShapeView_cornersRadius, 0f)
+        val cornersRadius = typedArray.getDimension(R.styleable.ShapeView_sv_cornersRadius, 0f)
         val cornersTopLeftRadius = typedArray.getDimension(
-            R.styleable.ShapeView_cornersTopLeftRadius,
+            R.styleable.ShapeView_sv_cornersTopLeftRadius,
             0f
         )
         val cornersTopRightRadius = typedArray.getDimension(
-            R.styleable.ShapeView_cornersTopRightRadius,
+            R.styleable.ShapeView_sv_cornersTopRightRadius,
             0f
         )
         val cornersBottomLeftRadius = typedArray.getDimension(
-            R.styleable.ShapeView_cornersBottomLeftRadius,
+            R.styleable.ShapeView_sv_cornersBottomLeftRadius,
             0f
         )
         val cornersBottomRightRadius = typedArray.getDimension(
-            R.styleable.ShapeView_cornersBottomRightRadius,
+            R.styleable.ShapeView_sv_cornersBottomRightRadius,
             0f
         )
 
-        val strokeWidth = typedArray.getDimension(R.styleable.ShapeView_strokeShapeWidth, 0f)
-        val strokeColor = typedArray.getColor(R.styleable.ShapeView_strokeShapeColor, 0)
-        val strokeDashGap = typedArray.getDimension(R.styleable.ShapeView_strokeDashGap, 0f)
-        val strokeDashWidth = typedArray.getDimension(R.styleable.ShapeView_strokeDashWidth, 0f)
+        val strokeWidth = typedArray.getDimension(R.styleable.ShapeView_sv_strokeShapeWidth, 0f)
+        val strokeColor = typedArray.getColor(R.styleable.ShapeView_sv_strokeShapeColor, 0)
+        val strokeDashGap = typedArray.getDimension(R.styleable.ShapeView_sv_strokeDashGap, 0f)
+        val strokeDashWidth = typedArray.getDimension(R.styleable.ShapeView_sv_strokeDashWidth, 0f)
 
-        if (hasValue(strokeWidth) && hasValue(typedArray, R.styleable.ShapeView_strokeShapeColor)) {
+        if (hasValue(strokeWidth) && hasValue(typedArray, R.styleable.ShapeView_sv_strokeShapeColor)) {
             if (hasValue(strokeDashGap) || hasValue(strokeDashWidth)) {
                 drawable.setStroke(
                     Math.round(strokeWidth),
@@ -98,9 +98,9 @@ object ShapeViewProxy {
             }
         }
 
-        val solidColor = typedArray.getColor(R.styleable.ShapeView_solidColor, 0)
+        val solidColor = typedArray.getColor(R.styleable.ShapeView_sv_solidColor, 0)
 
-        if (hasValue(typedArray, R.styleable.ShapeView_solidColor)) {
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_solidColor)) {
             drawable.setColor(solidColor)
         }
 
@@ -130,20 +130,20 @@ object ShapeViewProxy {
 
     private fun setGradient(drawable: GradientDrawable, typedArray: TypedArray) {
         val gradientArray = ArrayList<Int>()
-        if (hasValue(typedArray, R.styleable.ShapeView_gradientStartColor)) {
-            gradientArray.add(typedArray.getColor(R.styleable.ShapeView_gradientStartColor, 0))
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_gradientStartColor)) {
+            gradientArray.add(typedArray.getColor(R.styleable.ShapeView_sv_gradientStartColor, 0))
         }
-        if (hasValue(typedArray, R.styleable.ShapeView_gradientCenterColor)) {
-            gradientArray.add(typedArray.getColor(R.styleable.ShapeView_gradientCenterColor, 0))
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_gradientCenterColor)) {
+            gradientArray.add(typedArray.getColor(R.styleable.ShapeView_sv_gradientCenterColor, 0))
         }
-        if (hasValue(typedArray, R.styleable.ShapeView_gradientEndColor)) {
-            gradientArray.add(typedArray.getColor(R.styleable.ShapeView_gradientEndColor, 0))
+        if (hasValue(typedArray, R.styleable.ShapeView_sv_gradientEndColor)) {
+            gradientArray.add(typedArray.getColor(R.styleable.ShapeView_sv_gradientEndColor, 0))
         }
 
         if (gradientArray.isNotEmpty()) {
             drawable.colors = gradientArray.toIntArray()
             drawable.orientation =
-                when (typedArray.getInt(R.styleable.ShapeView_gradientOrientation, 0)) {
+                when (typedArray.getInt(R.styleable.ShapeView_sv_gradientOrientation, 0)) {
                     0 -> GradientDrawable.Orientation.LEFT_RIGHT
                     45 -> GradientDrawable.Orientation.BL_TR
                     90 -> GradientDrawable.Orientation.BOTTOM_TOP

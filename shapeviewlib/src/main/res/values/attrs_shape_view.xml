@@ -1,44 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="sv_shape" format="enum">
+        <enum name="rectangle" value="0" />
+        <enum name="oval" value="1" />
+        <enum name="line" value="2" />
+        <enum name="ring" value="3" />
+    </attr>
+
+    <attr name="sv_cornersRadius" format="reference|dimension" />
+    <attr name="sv_cornersTopLeftRadius" format="reference|dimension" />
+    <attr name="sv_cornersTopRightRadius" format="reference|dimension" />
+    <attr name="sv_cornersBottomLeftRadius" format="reference|dimension" />
+    <attr name="sv_cornersBottomRightRadius" format="reference|dimension" />
+
+    <attr name="sv_strokeShapeWidth" format="reference|dimension" />
+    <attr name="sv_strokeShapeColor" format="reference|color" />
+    <attr name="sv_strokeDashGap" format="reference|dimension" />
+    <attr name="sv_strokeDashWidth" format="reference|dimension" />
+
+    <attr name="sv_solidColor" format="reference|color" />
+    <attr name="sv_pressedSolidColor" format="reference|color" />
+    <attr name="sv_checkedSolidColor" format="reference|color" />
+    <attr name="sv_selectedSolidColor" format="reference|color" />
+    <attr name="sv_disableSolidColor" format="reference|color" />
+
+    <attr name="sv_gradientStartColor" format="reference|color" />
+    <attr name="sv_gradientCenterColor" format="reference|color" />
+    <attr name="sv_gradientEndColor" format="reference|color" />
+
+    <attr name="sv_gradientOrientation" format="enum">
+        <enum name="LEFT_RIGHT" value="0" />
+        <enum name="BL_TR" value="45" />
+        <enum name="BOTTOM_TOP" value="90" />
+        <enum name="BR_TL" value="135" />
+        <enum name="RIGHT_LEFT" value="180" />
+        <enum name="TR_BL" value="225" />
+        <enum name="TOP_BOTTOM" value="270" />
+        <enum name="TL_BR" value="315" />
+    </attr>
     <declare-styleable name="ShapeView">
-        <attr name="shape" format="enum">
-            <enum name="rectangle" value="0" />
-            <enum name="oval" value="1" />
-            <enum name="line" value="2" />
-            <enum name="ring" value="3" />
+        <attr name="sv_shape"></attr>
+        <attr name="sv_cornersRadius" />
+        <attr name="sv_cornersTopLeftRadius" />
+        <attr name="sv_cornersTopRightRadius" />
+        <attr name="sv_cornersBottomLeftRadius" />
+        <attr name="sv_cornersBottomRightRadius" />
+        <attr name="sv_strokeShapeWidth" />
+        <attr name="sv_strokeShapeColor" />
+        <attr name="sv_strokeDashGap" />
+        <attr name="sv_strokeDashWidth" />
+        <attr name="sv_solidColor" />
+        <attr name="sv_pressedSolidColor" />
+        <attr name="sv_checkedSolidColor" />
+        <attr name="sv_selectedSolidColor" />
+        <attr name="sv_disableSolidColor" />
+        <attr name="sv_gradientStartColor" />
+        <attr name="sv_gradientCenterColor" />
+        <attr name="sv_gradientEndColor" />
+        <attr name="sv_gradientOrientation">
         </attr>
-
-        <attr name="cornersRadius" format="reference|dimension" />
-        <attr name="cornersTopLeftRadius" format="reference|dimension" />
-        <attr name="cornersTopRightRadius" format="reference|dimension" />
-        <attr name="cornersBottomLeftRadius" format="reference|dimension" />
-        <attr name="cornersBottomRightRadius" format="reference|dimension" />
-
-        <attr name="strokeShapeWidth" format="reference|dimension" />
-        <attr name="strokeShapeColor" format="reference|color" />
-        <attr name="strokeDashGap" format="reference|dimension" />
-        <attr name="strokeDashWidth" format="reference|dimension" />
-
-        <attr name="solidColor" format="reference|color" />
-        <attr name="pressedSolidColor" format="reference|color" />
-        <attr name="checkedSolidColor" format="reference|color" />
-        <attr name="selectedSolidColor" format="reference|color" />
-        <attr name="disableSolidColor" format="reference|color" />
-
-        <attr name="gradientStartColor" format="reference|color" />
-        <attr name="gradientCenterColor" format="reference|color" />
-        <attr name="gradientEndColor" format="reference|color" />
-
-        <attr name="gradientOrientation" format="enum">
-            <enum name="LEFT_RIGHT" value="0" />
-            <enum name="BL_TR" value="45" />
-            <enum name="BOTTOM_TOP" value="90" />
-            <enum name="BR_TL" value="135" />
-            <enum name="RIGHT_LEFT" value="180" />
-            <enum name="TR_BL" value="225" />
-            <enum name="TOP_BOTTOM" value="270" />
-            <enum name="TL_BR" value="315" />
-        </attr>
+    </declare-styleable>
+    <declare-styleable name="ShapeConstraintLayout">
+        <attr name="sv_shape"/>
+        <attr name="sv_cornersRadius" />
+        <attr name="sv_cornersTopLeftRadius" />
+        <attr name="sv_cornersTopRightRadius" />
+        <attr name="sv_cornersBottomLeftRadius" />
+        <attr name="sv_cornersBottomRightRadius" />
+        <attr name="sv_strokeShapeWidth" />
+        <attr name="sv_strokeShapeColor" />
+        <attr name="sv_strokeDashGap" />
+        <attr name="sv_strokeDashWidth" />
+        <attr name="sv_solidColor" />
+        <attr name="sv_pressedSolidColor" />
+        <attr name="sv_checkedSolidColor" />
+        <attr name="sv_selectedSolidColor" />
+        <attr name="sv_disableSolidColor" />
+        <attr name="sv_gradientStartColor" />
+        <attr name="sv_gradientCenterColor" />
+        <attr name="sv_gradientEndColor" />
+        <attr name="sv_gradientOrientation"/>
+    </declare-styleable>
+    <declare-styleable name="ShapeLinearLayout">
+        <attr name="sv_shape"/>
+        <attr name="sv_cornersRadius" />
+        <attr name="sv_cornersTopLeftRadius" />
+        <attr name="sv_cornersTopRightRadius" />
+        <attr name="sv_cornersBottomLeftRadius" />
+        <attr name="sv_cornersBottomRightRadius" />
+        <attr name="sv_strokeShapeWidth" />
+        <attr name="sv_strokeShapeColor" />
+        <attr name="sv_strokeDashGap" />
+        <attr name="sv_strokeDashWidth" />
+        <attr name="sv_solidColor" />
+        <attr name="sv_pressedSolidColor" />
+        <attr name="sv_checkedSolidColor" />
+        <attr name="sv_selectedSolidColor" />
+        <attr name="sv_disableSolidColor" />
+        <attr name="sv_gradientStartColor" />
+        <attr name="sv_gradientCenterColor" />
+        <attr name="sv_gradientEndColor" />
+        <attr name="sv_gradientOrientation"/>
+    </declare-styleable>
+    <declare-styleable name="ShapeRelativeLayout">
+        <attr name="sv_shape"/>
+        <attr name="sv_cornersRadius" />
+        <attr name="sv_cornersTopLeftRadius" />
+        <attr name="sv_cornersTopRightRadius" />
+        <attr name="sv_cornersBottomLeftRadius" />
+        <attr name="sv_cornersBottomRightRadius" />
+        <attr name="sv_strokeShapeWidth" />
+        <attr name="sv_strokeShapeColor" />
+        <attr name="sv_strokeDashGap" />
+        <attr name="sv_strokeDashWidth" />
+        <attr name="sv_solidColor" />
+        <attr name="sv_pressedSolidColor" />
+        <attr name="sv_checkedSolidColor" />
+        <attr name="sv_selectedSolidColor" />
+        <attr name="sv_disableSolidColor" />
+        <attr name="sv_gradientStartColor" />
+        <attr name="sv_gradientCenterColor" />
+        <attr name="sv_gradientEndColor" />
+        <attr name="sv_gradientOrientation"/>
+    </declare-styleable>
+    <declare-styleable name="ShapeTextView">
+        <attr name="sv_shape"/>
+        <attr name="sv_cornersRadius" />
+        <attr name="sv_cornersTopLeftRadius" />
+        <attr name="sv_cornersTopRightRadius" />
+        <attr name="sv_cornersBottomLeftRadius" />
+        <attr name="sv_cornersBottomRightRadius" />
+        <attr name="sv_strokeShapeWidth" />
+        <attr name="sv_strokeShapeColor" />
+        <attr name="sv_strokeDashGap" />
+        <attr name="sv_strokeDashWidth" />
+        <attr name="sv_solidColor" />
+        <attr name="sv_pressedSolidColor" />
+        <attr name="sv_checkedSolidColor" />
+        <attr name="sv_selectedSolidColor" />
+        <attr name="sv_disableSolidColor" />
+        <attr name="sv_gradientStartColor" />
+        <attr name="sv_gradientCenterColor" />
+        <attr name="sv_gradientEndColor" />
+        <attr name="sv_gradientOrientation"/>
     </declare-styleable>
 
 </resources>
